@@ -1,27 +1,16 @@
 # Deploying Rails on Heroku
 
-### Add the Heroku tools on your server
+### Add the Heroku Tools
 
-On a Mac:
 ```
 $ brew tap heroku/brew && brew install heroku
-```
-
-On Ubuntu (Cloud 9):
-```
-$ sudo snap install --classic heroku
-```
-
-Afterwards, you can verify your installation (yours may be slightly different):
-```bash
-ubuntu:~/environment $ heroku --version
-heroku/7.24.1 linux-x64 node-v11.14.0
+$ heroku --version
 ```
 
 ### Login to Heroku
 Now we can login to Heroku from the command line.  Here's what it looks like for me:
 ```bash
-ubuntu:~/environment/users_app (master) $ heroku login -i
+$ heroku login -i
 heroku: Enter your login credentials
 Email: matt@learnacademy.org
 Password: **********
@@ -32,7 +21,7 @@ Logged in as matt@learnacademy.org
 Once logged in, we can create an app.  Your's will be named something different than below.
 
 ```bash
-ubuntu:~/environment/users_app (master) $ heroku create
+$ heroku create
 Creating app... done, ⬢ warm-fjord-57245
 https://warm-fjord-57245.herokuapp.com/ | https://git.heroku.com/warm-fjord-57245.git
 ```
@@ -40,7 +29,7 @@ https://warm-fjord-57245.herokuapp.com/ | https://git.heroku.com/warm-fjord-5724
 One more verification step that the remote git repo on Heroku was added to your local git config.
 
 ```bash
-ubuntu:~/environment/users_app (master) $ git config --list | grep heroku
+$ git config --list | grep heroku
 remote.heroku.url=https://git.heroku.com/warm-fjord-57245.git
 remote.heroku.fetch=+refs/heads/*:refs/remotes/heroku/*
 ```
@@ -63,7 +52,7 @@ production:
 Finally, we're ready to push our code.
 
 ```
-$ git push heroku master
+$ git push heroku main:main
 ```
 
 And once that is done, we can migrate:
